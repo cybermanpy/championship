@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load events_extras %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="table-content">
+	<table class="table center-block center-text">
+		<tr>
+			<th>EQUIPOS</th>
+			<th>PJ</th>
+			<th>PG</th>
+			<th>PE</th>
+			<th>PP</th>
+			<th>GF</th>
+			<th>GC</th>
+			<th>PUNTOS</th>
+			<th>DG</th>
+		</tr>
+		{% for item in listTeam %}
+		<tr style="background:{% cycle '#FFFFF0' '#C9C9C9' %} ">
+			<td>{{ item.description }}</td>
+			<td>{{ item.pj }}</td>
+			<td>{{ item.pg }}</td>
+			<td>{{ item.pe }}</td>
+			<td>{{ item.pp }}</td>
+			<td>{{ item.gf }}</td>
+			<td>{{ item.gc }}</td>
+			<td>{{ item.score }}</td>
+			<td>{{ item.gf|sub:item.gc }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<div class="pictures right">
+	{% for item in link %}
+		<figure class="image relative padding">
+			<img src="{{MEDIA_URL}}pic/{{item.imagesource|cutstring:'/'}}" width="320" height="200" alt="">
+		</figure>
+	{% endfor%}	
+</div>
+{% endblock %}

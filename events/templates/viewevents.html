@@ -1,0 +1,19 @@
+{% extends 'layoutindex.html' %}
+{% load events_extras %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+{% for item in listEvent %}
+	<a href="{% url 'teams.views.viewStandings' item.id %}">
+		<div class="events">
+			<figure class="image relative">
+				<img src="{{MEDIA_URL}}event/{{item.imagesource|cutstring:'/'}}" width="320" height="200" alt="{{ item.name }}">
+			</figure>
+		</div>
+		<div class="description center-text">
+			<p class="name"> {{ item.name|upper }} {{ item.description|upper }} </p>
+		</div>
+	</a>
+{% endfor %}
+{% endblock %}
