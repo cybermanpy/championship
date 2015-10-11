@@ -44,7 +44,8 @@ INSTALLED_APPS = (
     'players',
     'results',
     'teams',
-    'south',
+    'gunicorn',
+    #'south',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load events_extras %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="table-content">
+        <table class="table center-block">
+                {% regroup listTeam by fkteam as teamList %}
+                {% for team in teamList %}
+                        <tr>
+                                <th colspan="5">{{ team.grouper|upper }}</th>
+                        </tr>
+                        {% for item in team.list %}
+                                <tr style="background:{% cycle '#FFFFF0' '#C9C9C9' %} ">
+                                        <td>{{ item.name }}</td>
+                                </tr>
+                        {% endfor %}
+                {% endfor %}
+        </table>
+</div>
+<div class="pictures right">
+        {% for item in link %}
+                <figure class="image relative padding">
+                        <img src="{{MEDIA_URL}}pic/{{item.imagesource|cutstring:'/'}}" width="320" height="200" alt="">
+                </figure>
+        {% endfor %}
+</div>
+{% endblock %}
