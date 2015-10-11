@@ -11,9 +11,14 @@
                         <tr>
                                 <th colspan="5">{{ team.grouper|upper }}</th>
                         </tr>
+			<tr>
+				<td><strong>Nombre</strong></td>
+				<td><strong>Cedula</strong></td>
+			</tr>
                         {% for item in team.list %}
                                 <tr style="background:{% cycle '#FFFFF0' '#C9C9C9' %} ">
                                         <td>{{ item.name }}</td>
+					<td>{{ item.cedula }}</td>
                                 </tr>
                         {% endfor %}
                 {% endfor %}
