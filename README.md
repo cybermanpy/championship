@@ -3,4 +3,4 @@ Crear fixture.
 Subir fotos.
 Cargar amonestasiones
 Cargar goleadores
-Mostrar la tablea de posiciones
+Mostrar la tabla de posiciones
